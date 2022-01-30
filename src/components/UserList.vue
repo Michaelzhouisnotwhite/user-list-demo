@@ -2,8 +2,8 @@
   <div>
     <!-- 添加按钮 -->
     <el-button type="primary" @click="dialogVisible = true"
-      >添加新用户</el-button
-    >
+      >添加新用户
+    </el-button>
     <el-table :data="userList" stripe border>
       <el-table-column type="index" label="#"></el-table-column>
       <el-table-column label="姓名" prop="name"></el-table-column>
@@ -107,6 +107,7 @@ export default {
           return;
         }
         // 执行添加的业务处理
+        // eslint-disable-next-line no-unused-vars
         const { data: res } = await this.$http.post("/users-demo", this.form);
         this.$message({
           showClose: true,
@@ -114,7 +115,7 @@ export default {
           type: "success",
         });
         this.dialogVisible = false;
-        this.getUserList();
+        await this.getUserList();
       });
     },
     onDlgClose() {
@@ -140,9 +141,9 @@ export default {
       if (confirmRes !== "confirm") {
         return this.$message.info("取消了删除");
       }
-      this.$http.delete('/users-demo/' + id)
+      await this.$http.delete("/users-demo/" + id);
       this.$message.success("删除成功");
-      this.getUserList()
+      await this.getUserList();
     },
   },
 };
@@ -152,6 +153,7 @@ export default {
 .el-button {
   margin-bottom: 12px;
 }
+
 .el-form-item {
   margin-bottom: 25px;
 }

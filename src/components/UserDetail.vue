@@ -3,9 +3,13 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>用户详情</span>
-        <el-button style="float: right; padding: 3px 0" @click="goBack" type="text"
-          >返回</el-button
+        <el-button
+          style="float: right; padding: 3px 0"
+          @click="goBack"
+          type="text"
         >
+          返回
+        </el-button>
       </div>
       <div class="text item">
         <p>姓名：{{ userInfo.name }}</p>
@@ -13,6 +17,7 @@
         <p>头衔：{{ userInfo.position }}</p>
       </div>
     </el-card>
+
   </div>
 </template>
 
@@ -22,7 +27,7 @@ export default {
   props: ["id"],
   data() {
     return {
-      userInfo: [],
+      userInfo: {},
     };
   },
   created() {
@@ -34,11 +39,10 @@ export default {
       this.userInfo = res;
     },
     goBack() {
-      this.$router.go(-1)
-    }
+      this.$router.go(-1);
+    },
   },
 };
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>
