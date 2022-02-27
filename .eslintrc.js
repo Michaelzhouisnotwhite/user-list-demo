@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
+    "endOfLine": "0",
   },
 
   'extends': [

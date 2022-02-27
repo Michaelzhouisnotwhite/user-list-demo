@@ -118,6 +118,7 @@ export default {
         await this.getUserList();
       });
     },
+    
     onDlgClose() {
       // 拿到form组件的引用，调用resetFields()
       this.$refs.myaddForm.resetFields();
